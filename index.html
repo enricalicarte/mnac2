@@ -88,11 +88,22 @@
                         color: #00796b;
                         border: 1px solid #00796b;
                         padding: 1.5rem;
-                        margin-top: 1.5rem;
                         text-align: center;
                         border-radius: 10px;
                         font-weight: bold;
                         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        z-index: 10;
+                    }
+                    .form-disabled {
+                        opacity: 0.5;
+                        pointer-events: none;
+                    }
+                    .form-wrapper {
+                        position: relative;
                     }
                 </style>
                 <script>
@@ -101,7 +112,11 @@
                         const successMessage = document.createElement("div");
                         successMessage.className = "success-message";
                         successMessage.textContent = "Formulario enviado con éxito. Gracias por contactarnos.";
-                        formContainer.parentNode.insertBefore(successMessage, formContainer.nextSibling);
+                        const formWrapper = document.createElement("div");
+                        formWrapper.className = "form-wrapper";
+                        formContainer.parentNode.insertBefore(formWrapper, formContainer);
+                        formWrapper.appendChild(formContainer);
+                        formWrapper.parentNode.insertBefore(successMessage, formWrapper.nextSibling);
 
                         const checkFormLoaded = setInterval(() => {
                             const form = document.querySelector("._form_67 form");
@@ -109,6 +124,7 @@
                                 clearInterval(checkFormLoaded);
                                 form.addEventListener("submit", function(event) {
                                     event.preventDefault();
+                                    formWrapper.classList.add("form-disabled");
                                     successMessage.style.display = "block";
                                     setTimeout(() => {
                                         successMessage.style.display = "none";
