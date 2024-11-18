@@ -98,10 +98,7 @@
                         transform: translate(-50%, -50%);
                         z-index: 10;
                     }
-                    .form-disabled {
-                        opacity: 0.5;
-                        pointer-events: none;
-                    }
+                    
                     .form-wrapper {
                         position: relative;
                     }
@@ -111,7 +108,7 @@
                         const formContainer = document.querySelector("._form_67");
                         const successMessage = document.createElement("div");
                         successMessage.className = "success-message";
-                        successMessage.textContent = "Formulari enviat.";
+                        successMessage.textContent = "Formulario enviado con éxito. Gracias por contactarnos.";
                         const formWrapper = document.createElement("div");
                         formWrapper.className = "form-wrapper";
                         formContainer.parentNode.insertBefore(formWrapper, formContainer);
