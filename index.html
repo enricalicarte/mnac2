@@ -11,45 +11,122 @@
             padding: 0;
             box-sizing: border-box;
         }
-        .success-message {
-            display: none;
-            background-color: #dff0d8;
-            color: #3c763d;
-            border: 1px solid #d6e9c6;
+        header {
+            background: #003366;
+            color: #ffffff;
             padding: 1rem;
-            margin-top: 1rem;
             text-align: center;
-            border-radius: 5px;
+        }
+        nav {
+            display: flex;
+            justify-content: space-around;
+            background: #004080;
+            padding: 1rem;
+        }
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        main {
+            padding: 1rem;
+        }
+        section {
+            margin-bottom: 2rem;
+        }
+        footer {
+            background: #003366;
+            color: #ffffff;
+            text-align: center;
+            padding: 1rem;
+        }
+        /* Responsive design */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
         }
     </style>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const formContainer = document.querySelector("._form_67");
-            const successMessage = document.createElement("div");
-            successMessage.className = "success-message";
-            successMessage.textContent = "Formulario enviado con éxito. Gracias por contactarnos.";
-            formContainer.parentNode.insertBefore(successMessage, formContainer.nextSibling);
-
-            const checkFormLoaded = setInterval(() => {
-                const form = document.querySelector("._form_67 form");
-                if (form) {
-                    clearInterval(checkFormLoaded);
-                    form.addEventListener("submit", function(event) {
-                        event.preventDefault();
-                        successMessage.style.display = "block";
-                        setTimeout(() => {
-                            successMessage.style.display = "none";
-                        }, 5000);
-                        this.submit();
-                    });
-                }
-            }, 500);
-        });
-    </script>
 </head>
 <body>
-    <!-- Formulario incrustado -->
-    <div class="_form_67"></div>
-    <script src="https://museunacional.activehosted.com/f/embed.php?id=67" charset="utf-8"></script>
+    <header>
+        <h1>Museo Nacional d'Art de Catalunya</h1>
+    </header>
+    <nav>
+        <a href="#exposiciones">Exposiciones</a>
+        <a href="#actividades">Actividades</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+    <main>
+        <section id="exposiciones">
+            <h2>Exposiciones Actuales</h2>
+            <p>Conoce nuestras exposiciones actuales y planifica tu visita para disfrutar del arte y la historia de Catalunya.</p>
+        </section>
+        <section id="actividades">
+            <h2>Actividades Familiares</h2>
+            <p>Participa en nuestras actividades diseñadas para toda la familia y sumérgete en el mundo del arte.</p>
+        </section>
+        <section id="contacto">
+            <h2>Contacto</h2>
+            <!-- Formulario incrustado -->
+            <iframe srcdoc='<!DOCTYPE html>
+            <html lang="es">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <style>
+                    body {
+                        font-family: Arial, sans-serif;
+                        margin: 0;
+                        padding: 0;
+                        box-sizing: border-box;
+                    }
+                    .success-message {
+                        display: none;
+                        background-color: #dff0d8;
+                        color: #3c763d;
+                        border: 1px solid #d6e9c6;
+                        padding: 1rem;
+                        margin-top: 1rem;
+                        text-align: center;
+                        border-radius: 5px;
+                    }
+                </style>
+                <script>
+                    document.addEventListener("DOMContentLoaded", function() {
+                        const formContainer = document.querySelector("._form_67");
+                        const successMessage = document.createElement("div");
+                        successMessage.className = "success-message";
+                        successMessage.textContent = "Formulario enviado con éxito. Gracias por contactarnos.";
+                        formContainer.parentNode.insertBefore(successMessage, formContainer.nextSibling);
+
+                        const checkFormLoaded = setInterval(() => {
+                            const form = document.querySelector("._form_67 form");
+                            if (form) {
+                                clearInterval(checkFormLoaded);
+                                form.addEventListener("submit", function(event) {
+                                    event.preventDefault();
+                                    successMessage.style.display = "block";
+                                    setTimeout(() => {
+                                        successMessage.style.display = "none";
+                                    }, 5000);
+                                    this.submit();
+                                });
+                            }
+                        }, 500);
+                    });
+                </script>
+            </head>
+            <body>
+                <div class="_form_67"></div>
+                <script src="https://museunacional.activehosted.com/f/embed.php?id=67" charset="utf-8"></script>
+            </body>
+            </html>' width="100%" height="800px" style="border:none;"></iframe>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 MNAC - Museo Nacional d'Art de Catalunya. Todos los derechos reservados.</p>
+    </footer>
 </body>
 </html>
